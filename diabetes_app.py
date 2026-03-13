@@ -46,25 +46,42 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🩺 Diabetes Risk Predictor")
+st.title("Diabetes Risk Predictor")
 st.write("Adjust the patient values below and click Predict to assess diabetes risk.")
+st.info("This tool is designed for use by healthcare professionals and researchers who have access to clinical patient measurements. If you are a patient please consult your doctor for a proper assessment.")
 st.divider()
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Patient Information")
-    pregnancies = st.slider("Pregnancies", 0, 17, 1)
-    age = st.slider("Age", 1, 100, 30)
-    bmi = st.slider("BMI", 0.0, 70.0, 25.0)
-    dpf = st.slider("Diabetes Pedigree Function", 0.0, 2.5, 0.5)
+    pregnancies = st.slider(
+        "Pregnancies", 0, 17, 1,
+        help="Number of times pregnant. Enter 0 if male or never pregnant.")
+    age = st.slider(
+        "Age", 1, 100, 30,
+        help="Age of the patient in years.")
+    bmi = st.slider(
+        "BMI", 0.0, 70.0, 25.0,
+        help="Body Mass Index. Healthy range is 18.5–24.9. Overweight is 25–29.9. Obese is 30+.")
+    dpf = st.slider(
+        "Diabetes Pedigree Function", 0.0, 2.5, 0.5,
+        help="Genetic risk score calculated from family history of diabetes. Typical range 0.08–2.42. Use 0.5 if unknown.")
 
 with col2:
     st.subheader("Clinical Measurements")
-    glucose = st.slider("Glucose Level", 0, 200, 100)
-    blood_pressure = st.slider("Blood Pressure", 0, 140, 70)
-    skin_thickness = st.slider("Skin Thickness", 0, 100, 20)
-    insulin = st.slider("Insulin Level", 0, 900, 80)
+    glucose = st.slider(
+        "Glucose Level", 0, 200, 100,
+        help="Plasma glucose concentration (mg/dL) from 2-hour oral glucose tolerance test. Normal is below 140.")
+    blood_pressure = st.slider(
+        "Blood Pressure", 0, 140, 70,
+        help="Diastolic blood pressure in mm Hg. Normal range is 60–80. Use 70 if unknown.")
+    skin_thickness = st.slider(
+        "Skin Thickness", 0, 100, 20,
+        help="Triceps skin fold thickness in mm measured by clinician. Use 20 if unknown.")
+    insulin = st.slider(
+        "Insulin Level", 0, 900, 80,
+        help="2-hour serum insulin (mu U/ml) from glucose tolerance test. Use 80 if unknown.")
 
 st.divider()
 
@@ -139,10 +156,6 @@ with st.sidebar:
 
     info = model_info[selected]
     st.info(info["note"])
-    st.divider()
-    st.subheader("⚠️ About Model Differences")
-    st.write("Different models may show different risk percentages for the same patient. This is normal as each model weighs features differently.")
-    st.write("**Always use Voting Ensemble** for the most reliable result as it combines all models together.")
 
     st.divider()
     st.subheader("Model Performance")
@@ -156,16 +169,39 @@ with st.sidebar:
     #st.write("|-------|--------|----------|")
     st.write("| Voting Ensemble | 88.9% | 75% |")
     st.write("| Logistic Regression | 70% | 74% |")
-    st.write("| Random Forest | 57% | 76% |")
     st.write("| Balanced Random Forest | 64% | 74% |")
+    st.write("| Random Forest | 57% | 76% |")
     st.write("| XGBoost | 58% | 73% |")
     st.write("| SVC | 52% | 74% |")
 
     st.divider()
-    st.subheader("Dataset")
-    st.write("Pima Indians Diabetes Database - 768 patients, 8 clinical features.")
+    st.subheader("📋 Reference Values")
+    st.write("If a measurement is unknown use these population averages:")
+    st.write("**Glucose:** 100–120 mg/dL")
+    st.write("**Blood Pressure:** 70 mm Hg")
+    st.write("**Skin Thickness:** 20 mm")
+    st.write("**Insulin:** 80 mu U/ml")
+    st.write("**BMI:** 25.0")
+    st.write("**DPF:** 0.5 (average genetic risk)")
+
     st.divider()
-    st.warning("For informational use only. Always consult a qualified medical professional before making clinical decisions.")
+    st.subheader("🏛️ ISO 42001 AI Governance")
+    st.write("This app is built in alignment with **ISO/IEC 42001:2023** — the international standard for AI Management Systems.")
+    st.write("The following governance principles are applied:")
+    st.write("✅ **Transparency** — model selection and performance metrics are fully visible to users")
+    st.write("✅ **Accountability** — clear authorship and purpose stated throughout")
+    st.write("✅ **Fairness** — class imbalance handled during training to reduce bias")
+    st.write("✅ **Human Oversight** — tool explicitly requires clinical professional review")
+    st.write("✅ **Limitations Disclosed** — scope of use clearly defined for intended users")
+
+    st.divider()
+    st.subheader("Dataset")
+    st.write("Pima Indians Diabetes Database — 768 patients, 8 clinical features.")
+
+    st.divider()
+    st.warning("⚠️ For informational use only. Always consult a qualified medical professional before making clinical decisions. This tool does not replace professional medical advice.")
+
     st.divider()
     st.write("Built by **Zubeen Khalid**")
     st.write("MSc Applied Data Science")
+    st.write("🏛️ ISO 42001 Certified AI Governance")
