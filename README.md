@@ -131,7 +131,7 @@ streamlit run diabetes_app.py
 
 This application is for informational and educational purposes only.
 It is not a substitute for professional medical advice, diagnosis, or treatment.
-Built in alignment with ISO 42001 AI Management System principles — including 
+Built in alignment with ISO 42001 AI Management System principles including 
 transparency of model limitations, human oversight, and appropriate use disclaimers.
 
 ---
@@ -139,7 +139,7 @@ transparency of model limitations, human oversight, and appropriate use disclaim
 ## Author
 
 **Zubeen Khalid**
-MSc Applied Data Science — Anglia Ruskin University
+MSc Applied Data Science - Anglia Ruskin University
 ISO 42001 Certified | AI+ Foundation | Prompt Engineering Level 1
 
 [LinkedIn](https://www.linkedin.com/in/zubeenkhalid) · [GitHub](https://github.com/zubeen84)
