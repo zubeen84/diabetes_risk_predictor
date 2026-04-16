@@ -113,7 +113,7 @@ streamlit run diabetes_app.py
 ## Related Project
 
 [Full data science notebook](https://github.com/zubeen84/Machine-Learning-Model-for-Diabetes-Prediction) 
-— covers full EDA, preprocessing pipeline, model training, evaluation and selection.
+- covers full EDA, preprocessing pipeline, model training, evaluation and selection.
 
 ---
 
