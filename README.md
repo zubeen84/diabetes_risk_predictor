@@ -1,58 +1,90 @@
-# 🩺 Diabetes Risk Predictor
+# Diabetes Risk Predictor
+### End-to-end machine learning application with live deployment
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Live-brightgreen)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live%20App-brightgreen)
+![Models](https://img.shields.io/badge/Models-6%20ML%20Algorithms-blue)
+![Responsible AI](https://img.shields.io/badge/Design-ISO%2042001%20Aligned-742774?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-##  Live App
-👉 [Click here to open the app](https://diabetesriskpredictor-b85jnngpyqkpvbkmeac2q6.streamlit.app/)
+---
+
+## Live App
+
+[Open the live application](https://diabetesriskpredictor-b85jnngpyqkpvbkmeac2q6.streamlit.app/)
 
 ---
 
-##  Overview
+## At a Glance
 
-This app predicts the probability of a patient developing diabetes 
-within five years using multiple machine learning models trained on 
-the Pima Indians Diabetes Database.
-
-Built as part of a portfolio demonstrating end-to-end machine learning: from data preprocessing and model training to live deployment.
-
----
-
-##  Features
-
-- 🔢 Enter 8 clinical measurements via interactive sliders
-- 🤖 Choose from 6 trained ML models including Voting Ensemble
-- 📊 Risk score shown as a percentage with colour coded risk levels
-- 📈 Model performance comparison table in sidebar
-- ⚠️ ISO 42001 aligned responsible AI disclaimer built in
-- 📱 Mobile friendly layout
+| | |
+|---|---|
+| **Problem** | Early diabetes detection using clinical measurements to support medical screening |
+| **Approach** | Six ML models trained, evaluated, compared and deployed as an interactive app |
+| **Best model** | Voting Ensemble - 88.9% recall, 75% accuracy |
+| **Key challenge** | Class imbalance in medical data, addressed using IQR filtering, log transformation and SMOTE |
+| **Deployment** | Live Streamlit app - accessible on desktop and mobile |
+| **Governance** | ISO 42001 aligned responsible AI disclaimer built into the interface |
 
 ---
 
-##  Models Available
+## Overview
+
+A machine learning web application that predicts the probability of a patient 
+developing diabetes within five years, using the Pima Indians Diabetes Database 
+(UCI ML Repository).
+
+This project demonstrates a complete data science workflow: data preprocessing, 
+handling class imbalance, training and evaluating six ML models, selecting the 
+best performer, and deploying a live interactive application.
+
+**Why recall was prioritised over accuracy:**
+In a medical screening context, a false negative, predicting no diabetes when 
+the condition is present, is more harmful than a false positive. Model selection 
+therefore prioritised recall (sensitivity) to minimise missed cases, not raw accuracy. 
+The Voting Ensemble achieved 88.9% recall, the strongest result across all models tested.
+
+---
+
+## Model Comparison
 
 | Model | Recall | Accuracy | Notes |
 |-------|--------|----------|-------|
-| Voting Ensemble ⭐ | 88.9% | 75% | Recommended |
+| Voting Ensemble (recommended) | 88.9% | 75% | Best recall across all models |
 | Logistic Regression | 70% | 74% | Most interpretable |
-| Balanced Random Forest | 64% | 74% | Handles imbalance well |
+| Balanced Random Forest | 64% | 74% | Handles class imbalance well |
 | Random Forest | 57% | 76% | Best specificity |
-| XGBoost | 58% | 73% | Handles complex patterns |
-| SVC | 52% | 74% | Strong boundary detection |
+| XGBoost | 58% | 73% | Handles complex non-linear patterns |
+| SVC | 52% | 74% | Strong decision boundary detection |
+
+All six models are selectable in the live app, allowing direct comparison of 
+predictions and performance characteristics.
 
 ---
 
-##  Dataset
+## Application Features
 
-- **Source:** Pima Indians Diabetes Database - UCI ML Repository
-- **Size:** 768 patients, 8 clinical features
-- **Target:** Binary - Diabetic (1) or Non-Diabetic (0)
-- **Class imbalance:** Handled using IQR, log transformation and SMOTE
+- Enter 8 clinical measurements via interactive sliders
+- Select from 6 trained ML models including Voting Ensemble
+- Risk score displayed as a percentage with colour-coded risk levels
+- Model performance comparison table in sidebar for transparency
+- ISO 42001 aligned responsible AI disclaimer built into the interface
+- Mobile-friendly responsive layout
 
 ---
 
-##  Input Features
+## Dataset
+
+| | |
+|---|---|
+| **Source** | Pima Indians Diabetes Database - UCI ML Repository |
+| **Size** | 768 patients, 8 clinical features |
+| **Target** | Binary classification - Diabetic (1) / Non-Diabetic (0) |
+| **Class imbalance** | Addressed using IQR filtering, log transformation, and SMOTE oversampling |
+
+---
+
+## Input Features
 
 | Feature | Description |
 |---------|-------------|
@@ -60,40 +92,54 @@ Built as part of a portfolio demonstrating end-to-end machine learning: from dat
 | Glucose | Plasma glucose concentration |
 | Blood Pressure | Diastolic blood pressure (mm Hg) |
 | Skin Thickness | Triceps skin fold thickness (mm) |
-| Insulin | 2-Hour serum insulin (mu U/ml) |
+| Insulin | 2-hour serum insulin (mu U/ml) |
 | BMI | Body mass index |
 | Diabetes Pedigree Function | Genetic risk score |
 | Age | Age in years |
 
 ---
 
-##  How to Run Locally
+## Run Locally
+
 ```bash
 git clone https://github.com/zubeen84/diabetes-risk-predictor.git
 cd diabetes-risk-predictor
-pip install -r requirements.txt
+pip install -r requirements.requirements
 streamlit run diabetes_app.py
 ```
 
 ---
 
-##  Related Project
+## Related Project
 
-📓 [View the full data science notebook](https://github.com/zubeen84/Machine-Learning-Model-for-Diabetes-Prediction) :preprocessing, EDA, model training and evaluation
-
----
-
-## ⚠️ Disclaimer
-
-This app is for **informational and educational purposes only**.
-It is not a substitute for professional medical advice, diagnosis or treatment.
-Built in alignment with **ISO 42001 AI Management** principles.
+[Full data science notebook](https://github.com/zubeen84/Machine-Learning-Model-for-Diabetes-Prediction) 
+— covers full EDA, preprocessing pipeline, model training, evaluation and selection.
 
 ---
 
-## 👤 Author
+## Skills Demonstrated
+
+`Python` `Scikit-learn` `XGBoost` `Streamlit` `Machine Learning` `Classification`  
+`Ensemble Methods` `Logistic Regression` `Random Forest` `SVC` `SMOTE`  
+`Class Imbalance Handling` `Model Evaluation` `Recall Optimisation` `EDA`  
+`Feature Engineering` `Data Preprocessing` `Model Deployment` `Responsible AI`  
+`ISO 42001` `Healthcare Analytics` `UCI ML Repository`
+
+---
+
+## Responsible AI
+
+This application is for informational and educational purposes only.
+It is not a substitute for professional medical advice, diagnosis, or treatment.
+Built in alignment with ISO 42001 AI Management System principles — including 
+transparency of model limitations, human oversight, and appropriate use disclaimers.
+
+---
+
+## Author
 
 **Zubeen Khalid**
-MSc Applied Data Science
- [LinkedIn](https://www.linkedin.com/in/zubeenkhalid)
- [GitHub](https://github.com/zubeen84)
+MSc Applied Data Science — Anglia Ruskin University
+ISO 42001 Certified | AI+ Foundation | Prompt Engineering Level 1
+
+[LinkedIn](https://www.linkedin.com/in/zubeenkhalid) · [GitHub](https://github.com/zubeen84)
